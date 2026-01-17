@@ -11,21 +11,34 @@ git submodule update --init --recursive
 # local.conf won't exist until this step on first execution
 source poky/oe-init-build-env
 
+
+# Set MACHINE variable
 MACHINE="${1:-raspberrypi4-64}"
-CONFLINE="MACHINE = \"${MACHINE}\""
+CONF_FILE="conf/local.conf"
 
-cat conf/local.conf | grep "${CONFLINE}" > /dev/null
-local_conf_info=$?
+# Function to append a line if not present
+add_conf_line() {
+    local line="$1"
+    grep -F -- "$line" "$CONF_FILE" > /dev/null || echo "$line" >> "$CONF_FILE"
+}
 
-if [ $local_conf_info -ne 0 ];then
-	echo "Append ${CONFLINE} in the local.conf file"
-	echo ${CONFLINE} >> conf/local.conf
-	
-else
-	echo "${CONFLINE} already exists in the local.conf file"
-fi
+# Ensure MACHINE is set
+add_conf_line "MACHINE = \"${MACHINE}\""
 
-cat conf/bblayers.conf
+# Ensure I2C and related config is present
+add_conf_line ''
+add_conf_line '#extra-packages for i2c tools'
+add_conf_line ''
+add_conf_line '# Enable I2C hardware interface in device tree'
+add_conf_line 'ENABLE_I2C = "1"'
+add_conf_line ''
+add_conf_line '# Enable I2C on GPIO pins (I2C1)'
+add_conf_line 'RPI_EXTRA_CONFIG:append = "\n dtparam=i2c_arm=on"'
+add_conf_line ''
+add_conf_line 'KERNEL_MODULE_AUTOLOAD:raspberrypi4-64 = " i2c-dev i2c-bcm2708"'
+add_conf_line 'IMAGE_INSTALL:append = " i2c-tools"'
+# add login
+add_conf_line 'EXTRA_USERS_PARAMS = "usermod -p '\$1\$rTZZJmWV\$b36TxGIDt4YqX/oeoLIYI0' root;"'
 
 echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
@@ -35,5 +48,4 @@ bitbake-layers show-layers
 
 lsblk
 
-# bitbake core-image-full-cmdline
-# cp -p ${PWD}/tmp/deploy/images/raspberrypi4-64/core-image-full-cmdline-raspberrypi4-64.wic.bz2 /media/sf_shared/core-image-full-cmdline-raspberrypi4-64.wic.bz2
+bitbake core-image-full-cmdline
