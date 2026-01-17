@@ -26,8 +26,8 @@ else
 fi
 
 
-bitbake-layers show-layers | grep "meta-raspberrypi" > /dev/null
-layer_info=$?
+# bitbake-layers show-layers | grep "meta-raspberrypi" > /dev/null
+# layer_info=$?
 
 if [ $layer_info -ne 0 ];then
 	echo "Adding meta-raspberrypi layer"
