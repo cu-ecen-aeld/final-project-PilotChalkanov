@@ -42,8 +42,8 @@ add_conf_line 'EXTRA_USERS_PARAMS = "usermod -p '\$1\$rTZZJmWV\$b36TxGIDt4YqX/oe
 
 echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
-bitbake-layers add-layer ../meta-openembedded/meta-oe
-bitbake-layers add-layer ../meta-openembedded/meta-python
+# bitbake-layers add-layer ../meta-openembedded/meta-oe
+# bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers show-layers
 
 lsblk
