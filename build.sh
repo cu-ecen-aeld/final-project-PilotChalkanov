@@ -26,7 +26,7 @@ else
 fi
 
 
-# bitbake-layers show-layers | grep "meta-raspberrypi" > /dev/null
+bitbake-layers show-layers
 cat conf/bblayers.conf
 # layer_info=$?
 
