@@ -3,7 +3,7 @@ set -e
 
 MACHINE="${MACHINE:-${1:-raspberrypi4-64}}"
 SD_DEVICE="${SD_DEVICE:-/dev/sdb}"
-IMAGE_PATH="${PWD}/build/tmp/deploy/images/${MACHINE}/core-image-full-cmdline-${MACHINE}.wic.bz2"
+IMAGE_PATH="${PWD}/${MACHINE}/tmp/deploy/images/${MACHINE}/core-image-full-cmdline-${MACHINE}.wic.bz2"
 
 echo "Flashing image for MACHINE: $MACHINE to device: $SD_DEVICE"
 
