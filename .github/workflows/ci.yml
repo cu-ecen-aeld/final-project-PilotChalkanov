@@ -21,7 +21,10 @@ jobs:
                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           - name: Run build
             timeout-minutes: 600
-            run: source ./build.sh
+            run: source ./build.sh "raspberrypi4-64"
+          - name: Flash SD Card
+            timeout-minutes: 30
+            run: source ./flash_sd.sh "raspberrypi4-64" "/dev/sdb"
           - name: Cleanup
             if: always()
             run: |
