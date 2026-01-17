@@ -25,20 +25,12 @@ else
 	echo "${CONFLINE} already exists in the local.conf file"
 fi
 
-
-bitbake-layers show-layers
 cat conf/bblayers.conf
-# layer_info=$?
 
-# if [ $layer_info -ne 0 ];then
-# 	echo "Adding meta-raspberrypi layer"
-# 	bitbake-layers add-layer ../meta-raspberrypi
-# 	bitbake-layers add-layer ../meta-openembedded/meta-oe
-# 	bitbake-layers add-layer ../meta-openembedded/meta-python
-# 	# bitbake-layers add-layer ../meta-aesd
-# else
-# 	echo "meta-raspberrypi layer already exists"
-# fi
+echo "Adding meta-raspberrypi layer"
+bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
 
-# bitbake core-image-full-cmdline
+bitbake core-image-full-cmdline
 # cp -p ${PWD}/tmp/deploy/images/raspberrypi4-64/core-image-full-cmdline-raspberrypi4-64.wic.bz2 /media/sf_shared/core-image-full-cmdline-raspberrypi4-64.wic.bz2
