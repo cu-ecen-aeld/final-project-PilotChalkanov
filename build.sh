@@ -8,15 +8,6 @@ git submodule init
 git submodule sync
 git submodule update --init --recursive
 
-git -C poky fetch origin
-git -C poky checkout -B kirkstone origin/kirkstone
-
-git -C meta-raspberrypi fetch origin
-git -C meta-raspberrypi checkout -B kirkstone origin/kirkstone
-
-git -C meta-openembedded fetch origin
-git -C meta-openembedded checkout -B kirkstone origin/kirkstone
-
 # local.conf won't exist until this step on first execution
 source poky/oe-init-build-env
 
