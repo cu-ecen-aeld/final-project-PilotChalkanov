@@ -8,6 +8,7 @@ git submodule sync
 git submodule update
 git -C poky checkout -B kirkstone origin/kirkstone
 git -C meta-raspberrypi checkout -B kirkstone origin/kirkstone
+git -C meta-openembedded checkout -B kirkstone origin/kirkstone
 
 # local.conf won't exist until this step on first execution
 source poky/oe-init-build-env
@@ -33,6 +34,8 @@ layer_info=$?
 if [ $layer_info -ne 0 ];then
 	echo "Adding meta-raspberrypi layer"
 	bitbake-layers add-layer ../meta-raspberrypi
+	bitbake-layers add-layer ../meta-openembedded/meta-oe
+	bitbake-layers add-layer ../meta-openembedded/meta-python
 	# bitbake-layers add-layer ../meta-aesd
 else
 	echo "meta-raspberrypi layer already exists"
