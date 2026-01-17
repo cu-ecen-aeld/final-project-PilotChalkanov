@@ -4,4 +4,7 @@
 
 [submodule "meta-raspberrypi"]
 	path = meta-raspberrypi
-	url = https://git.yoctoproject.org/meta-raspberrypi
+	url = https://github.com/agherzan/meta-raspberrypi
+[submodule "meta-openembedded"]
+	path = meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded.git
