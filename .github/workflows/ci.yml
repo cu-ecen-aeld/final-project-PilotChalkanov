@@ -4,10 +4,10 @@ on:
         branches:
             - 'develop'
             - 'main'
-        pull_request:
-            branches:
-                - 'develop'
-                - 'main'
+    pull_request:
+        branches:
+            - 'develop'
+            - 'main'
 jobs:
       full-test:
         runs-on: self-hosted
@@ -21,7 +21,7 @@ jobs:
                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           - name: Run build
             timeout-minutes: 600
-            run: ./build.sh
+            run: chmod +x ./build.sh && ./build.sh
           - name: Cleanup
             if: always()
             run: |
