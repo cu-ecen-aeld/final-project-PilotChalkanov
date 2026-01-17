@@ -31,6 +31,9 @@ echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers show-layers
 
-bitbake core-image-full-cmdline
+lsblk
+
+# bitbake core-image-full-cmdline
 # cp -p ${PWD}/tmp/deploy/images/raspberrypi4-64/core-image-full-cmdline-raspberrypi4-64.wic.bz2 /media/sf_shared/core-image-full-cmdline-raspberrypi4-64.wic.bz2
