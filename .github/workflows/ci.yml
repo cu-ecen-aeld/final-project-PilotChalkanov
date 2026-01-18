@@ -1,13 +1,13 @@
 name: assignment-test
 on:
-    # push:        
-    #     branches:
-    #         - 'develop'
-    #         - 'main'
-    pull_request:
+    push:        
         branches:
             - 'develop'
             - 'main'
+    # pull_request:
+    #     branches:
+    #         - 'develop'
+            
 jobs:
       build:
         runs-on: self-hosted
@@ -19,10 +19,11 @@ jobs:
           - uses: webfactory/ssh-agent@v0.5.4
             with:
                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          - name: Run build
+          - name: Build Kernel and RootFS
             timeout-minutes: 600
             run: source ./build.sh "raspberrypi4-64"
           - name: Flash SD Card
+            if: github.ref == 'refs/heads/main' && github.event_name == 'push'
             timeout-minutes: 30
             run: source ./flash.sh "raspberrypi4-64" "/dev/sdb"
           - name: Cleanup
