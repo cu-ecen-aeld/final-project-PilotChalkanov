@@ -26,6 +26,8 @@ add_conf_line() {
 
 echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-aesd
 
 bitbake core-image-full-cmdline
