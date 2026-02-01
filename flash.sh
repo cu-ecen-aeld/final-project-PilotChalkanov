@@ -19,3 +19,6 @@ fi
 
 bzcat "$IMAGE_PATH" | sudo dd of="$SD_DEVICE" bs=4M conv=fsync status=progress
 echo "Flashing completed successfully."
+
+eject "$SD_DEVICE"
+echo "SD card ejected. You can now remove it safely."
