@@ -12,7 +12,8 @@ git submodule update --init --recursive
 source poky/oe-init-build-env
 
 
-# Set MACHINE variable
+
+# Set MACHINE variable and overlay in local.conf
 MACHINE="${1:-raspberrypi4-64}"
 CONF_FILE="conf/local.conf"
 
@@ -21,6 +22,13 @@ add_conf_line() {
     local line="$1"
     grep -F -- "$line" "$CONF_FILE" > /dev/null || echo "$line" >> "$CONF_FILE"
 }
+
+# Ensure MACHINE and overlay are set in local.conf
+add_conf_line '# This sets the default machine to be raspberrypi4-64:'
+add_conf_line "MACHINE ??= \"$MACHINE\""
+add_conf_line ''
+add_conf_line '# Add lcd1602 overlay for Raspberry Pi'
+add_conf_line 'RPI_DT_OVERLAYS += "lcd1602-overlay"'
 
 
 
