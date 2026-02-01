@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&i2c1>;
+        __overlay__ {
+            status = "okay";
+            lcd1602: lcd1602@27 {
+                compatible = "pcf8574,a0";
+                reg = <0x27>;
+            };
+        };
+    };
+};
