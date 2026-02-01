@@ -12,7 +12,8 @@ git submodule update --init --recursive
 source poky/oe-init-build-env
 
 
-# Set MACHINE variable
+
+# Set MACHINE variable and overlay in local.conf
 MACHINE="${1:-raspberrypi4-64}"
 CONF_FILE="conf/local.conf"
 
@@ -22,26 +23,19 @@ add_conf_line() {
     grep -F -- "$line" "$CONF_FILE" > /dev/null || echo "$line" >> "$CONF_FILE"
 }
 
-# Ensure MACHINE is set
-add_conf_line "MACHINE = \"${MACHINE}\""
+# Ensure MACHINE and overlay are set in local.conf
+add_conf_line '# This sets the default machine to be raspberrypi4-64:'
+add_conf_line "MACHINE ??= \"$MACHINE\""
+add_conf_line ''
+add_conf_line '# Add lcd1602 overlay for Raspberry Pi'
+add_conf_line 'RPI_DT_OVERLAYS += "lcd1602-overlay"'
 
-# Ensure I2C and related config is present
-add_conf_line ''
-add_conf_line '#extra-packages for i2c tools'
-add_conf_line ''
-add_conf_line '# Enable I2C hardware interface in device tree'
-add_conf_line 'ENABLE_I2C = "1"'
-add_conf_line ''
-add_conf_line '# Enable I2C on GPIO pins (I2C1)'
-add_conf_line 'RPI_EXTRA_CONFIG:append = "\n dtparam=i2c_arm=on"'
-add_conf_line ''
-add_conf_line 'KERNEL_MODULE_AUTOLOAD:raspberrypi4-64 = " i2c-dev i2c-bcm2708"'
-add_conf_line 'IMAGE_INSTALL:append = " i2c-tools"'
-# add login
-add_conf_line 'EXTRA_USERS_PARAMS = "usermod -p '\$1\$rTZZJmWV\$b36TxGIDt4YqX/oeoLIYI0' root;"'
+
 
 echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-aesd
 
-
-bitbake core-image-full-cmdline
+bitbake core-image-aesd
