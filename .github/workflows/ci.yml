@@ -24,7 +24,7 @@ jobs:
             timeout-minutes: 600
             run: source ./build.sh "raspberrypi4-64"
           - name: Flash SD Card
-            if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+            # if: github.ref == 'refs/heads/main' && github.event_name == 'push'
             timeout-minutes: 30
             run: source ./flash.sh "raspberrypi4-64" "/dev/sdb"
           - name: Cleanup
