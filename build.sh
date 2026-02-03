@@ -29,7 +29,7 @@ add_conf_line "MACHINE ??= \"$MACHINE\""
 add_conf_line ''
 add_conf_line '# Add lcd1602 overlay for Raspberry Pi'
 add_conf_line 'RPI_EXTRA_CONFIG = "\ndtoverlay=lcd1602-overlay"'
-add_conf_line 'IMAGE_BOOT_FILES:append = " overlays/lcd1602-overlay.dtbo"
+add_conf_line 'IMAGE_BOOT_FILES:append = " overlays/lcd1602-overlay.dtbo"'
 
 
 
