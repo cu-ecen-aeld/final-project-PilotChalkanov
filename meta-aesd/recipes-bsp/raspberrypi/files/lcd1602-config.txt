@@ -1,1 +1,0 @@
-dtoverlay=lcd1602-overlay
