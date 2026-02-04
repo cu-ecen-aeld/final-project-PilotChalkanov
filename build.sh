@@ -23,15 +23,9 @@ add_conf_line() {
     grep -F -- "$line" "$CONF_FILE" > /dev/null || echo "$line" >> "$CONF_FILE"
 }
 
-# Ensure MACHINE and overlay are set in local.conf
+# Ensure MACHINE is set in local.conf
 add_conf_line '# This sets the default machine to be raspberrypi4-64:'
 add_conf_line "MACHINE ??= \"$MACHINE\""
-add_conf_line ''
-add_conf_line '# Add lcd1602 overlay for Raspberry Pi'
-add_conf_line 'RPI_EXTRA_CONFIG = "\ndtoverlay=lcd1602-overlay"'
-add_conf_line 'IMAGE_BOOT_FILES:append = " overlays/lcd1602-overlay.dtbo"'
-
-
 
 echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
