@@ -15,6 +15,6 @@ ROOTFS_POSTPROCESS_COMMAND += "append_lcd1602_overlay_to_config_txt;"
 
 append_lcd1602_overlay_to_config_txt() {
     if [ -f ${IMAGE_ROOTFS}/boot/config.txt ]; then
-        echo 'dtoverlay=lcd1602-overlay' >> ${IMAGE_ROOTFS}/boot/config.txt
+        cat ${WORKDIR}/lcd1602-config.txt >> ${IMAGE_ROOTFS}/boot/config.txt
     fi
 }
