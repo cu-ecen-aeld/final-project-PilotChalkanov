@@ -9,7 +9,7 @@
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=bbe03a873d53d6c8df0dfcd5772e391f"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d41d8cd98f00b204e9800998ecf8427e"
 INSANE_SKIP_${PN} += "license license-checksum"
 INSANE_SKIP_${PN} += "license"
 
