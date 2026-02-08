@@ -1,7 +1,7 @@
 inherit core-image
 IMAGE_INSTALL:append = " i2c-tools"
 KERNEL_MODULE_AUTOLOAD:raspberrypi4-64 = "i2c-dev"
-CORE_IMAGE_EXTRA_INSTALL += "aesd-i2c-driver"
+CORE_IMAGE_EXTRA_INSTALL += "aesd-i2c-driver lcd1602-overlay"
 inherit extrausers
 # See https://docs.yoctoproject.org/singleindex.html#extrausers-bbclass
 # We set a default password of root to match our busybox instance setup
