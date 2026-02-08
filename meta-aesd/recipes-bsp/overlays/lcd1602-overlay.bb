@@ -4,6 +4,7 @@ LICENSE = "MIT"
 inherit devicetree
 
 COMPATIBLE_MACHINE = "raspberrypi4|raspberrypi4-64"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI = "file://lcd1602-overlay.dts"
 
 FILES:${PN} += "/boot/overlays/*.dtbo"

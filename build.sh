@@ -26,7 +26,7 @@ add_conf_line() {
 # Ensure MACHINE is set in local.conf
 add_conf_line '# This sets the default machine to be raspberrypi4-64:'
 add_conf_line "MACHINE ??= \"$MACHINE\""
-add_conf_line 'RPI_KERNEL_DEVICETREE_OVERLAYS += "overlays/lcd1602-overlay.dtbo"'
+add_conf_line 'RPI_EXTRA_CONFIG += "dtoverlay=lcd1602-overlay"'
 
 echo "Adding meta-raspberrypi layer"
 bitbake-layers add-layer ../meta-raspberrypi
