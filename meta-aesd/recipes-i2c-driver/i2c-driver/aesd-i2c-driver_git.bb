@@ -8,6 +8,11 @@
 # The following license files were not able to be identified and are
 # represented as "Unknown" below, you will need to check them yourself:
 #   LICENSE
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=bbe03a873d53d6c8df0dfcd5772e391f"
+INSANE_SKIP_${PN} += "license license-checksum"
+INSANE_SKIP_${PN} += "license"
+
 SRC_URI = "git://git@github.com/PilotChalkanov/i2c-lcd-drivers.git;protocol=ssh;branch=feature/issue_7_fix_delay \
            file://lcd_start_stop.sh \
            "
