@@ -9,11 +9,7 @@
         __overlay__ {
             status = "okay";
             lcd1602: lcd1602@27 {
-<<<<<<<< HEAD:meta-aesd/recipes-kernel/linux/files/lcd1602-overlay.dts
                 compatible = "hitachi,hd44780";
-========
-                compatible = "nxp,pcf8574";
->>>>>>>> origin/develop:meta-aesd/recipes-bsp/overlays/files/lcd1602-overlay.dts
                 reg = <0x27>;
             };
         };
