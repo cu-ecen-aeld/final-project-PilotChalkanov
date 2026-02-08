@@ -19,7 +19,7 @@ SRC_URI = "git://git@github.com/PilotChalkanov/i2c-lcd-drivers.git;protocol=ssh;
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "a14f8bd5aaa654ab562a7f791747f07cc013b85a"
+SRCREV = "d4420dbc8c523bd3bc9accb415ac6d4ff1ed56ae"
 
 S = "${WORKDIR}/git"
 
