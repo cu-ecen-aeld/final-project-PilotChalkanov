@@ -9,7 +9,7 @@
         __overlay__ {
             status = "okay";
             lcd1602: lcd1602@27 {
-                compatible = "nxp,pcf8574";
+                compatible = "a0,pcf8574";
                 reg = <0x27>;
             };
         };
