@@ -1,6 +1,6 @@
 inherit core-image
 IMAGE_INSTALL:append = " i2c-tools"
-KERNEL_MODULE_AUTOLOAD:raspberrypi4-64 = " i2c-dev i2c-bcm2708"
+KERNEL_MODULE_AUTOLOAD:raspberrypi4-64 = "i2c-dev i2c-bcm2708 lcd1602"
 CORE_IMAGE_EXTRA_INSTALL += "aesd-i2c-driver"
 inherit extrausers
 # See https://docs.yoctoproject.org/singleindex.html#extrausers-bbclass
