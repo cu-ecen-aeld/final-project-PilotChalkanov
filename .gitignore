@@ -4,3 +4,5 @@ valgrind-out.txt
 test.sh.log
 # Snyk Security Extension - AI Rules (auto-generated)
 .github/instructions/snyk_rules.instructions.md
+build/
+raspberrypi4-64/
