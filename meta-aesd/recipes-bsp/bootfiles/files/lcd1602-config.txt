@@ -1,0 +1,6 @@
+# Enable I2C-1 for LCD1602
+dtparam=i2c_arm=on
+dtparam=i2c_arm_baudrate=100000
+
+# Load LCD1602 overlay
+dtoverlay=lcd1602-overlay
