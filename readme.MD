@@ -3,6 +3,7 @@
 This project provides a Yocto-based build system for embedded Linux development, targeting platforms such as the Raspberry Pi 4.
 ## Project Overview
 [ECEA 5307 Final Project Overview](https://github.com/cu-ecen-aeld/final-project-PilotChalkanov/wiki/Project-Overview)
+[ECEA 5307 Final Project Schedule](https://github.com/users/PilotChalkanov/projects/4/views/1)
 
 
 ## Features
