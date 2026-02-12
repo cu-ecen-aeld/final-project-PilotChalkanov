@@ -13,13 +13,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=290efe214cb7263cbcdae6111d8065cf"
 INSANE_SKIP_${PN} += "license license-checksum"
 INSANE_SKIP_${PN} += "license"
 
-SRC_URI = "git://git@github.com/PilotChalkanov/i2c-lcd-drivers.git;protocol=ssh;branch=develop \
+SRC_URI = "git://git@github.com/PilotChalkanov/i2c-lcd-drivers.git;protocol=ssh;branch=feature/remove-string-termination-write-buff  \
            file://lcd_start_stop.sh \
            "
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "56fabb6e68fbc9c8b166190b65d4e9315a46d47c"
+SRCREV = "3cd273b5a3873edc21681a600ba7ba7447052828"
 
 S = "${WORKDIR}/git"
 
