@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=bf72105a69d303b78352c6a39239bc69"
 SRC_URI = "file://weather_app.py file://start_app.sh file://weather_app.service file://LICENSE"
 
 S = "${WORKDIR}"
+FILES:${PN} += "${systemd_unitdir}/system/weather_app.service"
 
 do_install() {
     install -d ${D}${bindir}
