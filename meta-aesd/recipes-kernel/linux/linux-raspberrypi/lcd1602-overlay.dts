@@ -12,6 +12,10 @@
                 compatible = "hitachi,hd44780";
                 reg = <0x27>;
             };
+            aht21: aht21@38 {
+                compatible = "sensaht21,aht21";
+                reg = <0x38>;
+            };
         };
     };
 };
