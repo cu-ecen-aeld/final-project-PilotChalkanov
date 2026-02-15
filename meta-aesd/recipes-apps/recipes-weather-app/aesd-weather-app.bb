@@ -1,9 +1,9 @@
 DESCRIPTION = "AHT21 to LCD1602 daemon Python app"
 SECTION = "apps"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://app.py;md5=PLACEHOLDER"
+LIC_FILES_CHKSUM = "file://weather_app.py;md5=PLACEHOLDER"
 
-SRC_URI = "file://app.py"
+SRC_URI = "file://weather_app.py"
 
 S = "${WORKDIR}"
 
