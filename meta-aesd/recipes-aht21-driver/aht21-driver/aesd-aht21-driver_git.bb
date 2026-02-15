@@ -13,13 +13,13 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fb90819ede98782f3960734292a6249c"
 INSANE_SKIP_${PN} += "license license-checksum"
 INSANE_SKIP_${PN} += "license"
 
-SRC_URI = "git://git@github.com/PilotChalkanov/i2c-aht21-driver.git;protocol=ssh;branch=feature/initial-temp-driver-implementation \
+SRC_URI = "git://git@github.com/PilotChalkanov/i2c-aht21-driver.git;protocol=ssh;branch=main \
            file://aht21_start_stop.sh \
            "
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "593e1e341066a68e9e898b035370ba1943a5ac68"
+SRCREV = "e38ac9e6fc4d4b0eb17560bfa0d696c230b7174f"
 
 S = "${WORKDIR}/git"
 
