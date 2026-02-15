@@ -49,7 +49,7 @@ do_install() {
       install -m 0644 ${S}/aht21/*.ko ${D}/lib/modules/${KERNEL_VERSION}/extra/
 
       install -d ${D}${sysconfdir}/init.d
-      install -m 0755 ${WORKDIR}/lcd_start_stop.sh ${D}${sysconfdir}/init.d/aht21_start_stop
+      install -m 0755 ${WORKDIR}/aht21_start_stop.sh ${D}${sysconfdir}/init.d/aht21_start_stop
 
       install -d ${D}${bindir}
       install -m 0755 ${S}/aht21/aht21_load.sh ${D}${bindir}/aht21_load
