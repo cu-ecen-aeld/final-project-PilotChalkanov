@@ -19,8 +19,6 @@ INITSCRIPT_PARAMS:${PN} = "defaults 99"
 FILES:${PN} += "${sysconfdir}/init.d/weather_app_start_stop ${PYTHON_SITEPACKAGES_DIR}/aesd_weather_app"
 
 do_install() {
-    python_pep517_do_install
-
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/weather_app_start_stop.sh ${D}${sysconfdir}/init.d/weather_app_start_stop
 }
