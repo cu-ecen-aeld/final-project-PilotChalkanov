@@ -22,3 +22,5 @@ do_install:append() {
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/weather_app_start_stop.sh ${D}${sysconfdir}/init.d/weather_app_start_stop
 }
+
+RDEPENDS:${PN} = "python3-core python3-requests python3-uv-build"
