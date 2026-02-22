@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 DAEMON=/usr/bin/python3
-DAEMON_ARGS="/usr/bin/weather_app.py"
+DAEMON_ARGS="-m aesd_weather_app.main"
 PIDFILE=/var/run/weather_app.pid
 NAME=weather_app
 
