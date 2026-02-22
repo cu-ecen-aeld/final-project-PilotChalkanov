@@ -1,10 +1,10 @@
-import threading
+import struct
 import time
 import logging
 
 AHT21_DEV = "/dev/aht21"
 LCD1602_DEV = "/dev/lcd1602"
-INTERVAL = 5  # seconds
+INTERVAL = 30  # seconds
 
 logging.basicConfig(
     filename="/var/log/weather_app.log",
@@ -16,9 +16,10 @@ def fetch_and_write():
     while True:
         try:
             with open(AHT21_DEV, "r") as sensor:
-                data = sensor.read().strip()
+                data = sensor.read(8).strip()
+                temp, humidity = struct.unpack("ii", data)
             with open(LCD1602_DEV, "w") as lcd:
-                lcd.write(data)
+                lcd.write(f"Temp: {temp}C Hum: {humidity}%")
             logging.info(f"Read from {AHT21_DEV}: {data} | Written to {LCD1602_DEV}")
         except Exception as e:
             logging.error(f"Error: {e}")
