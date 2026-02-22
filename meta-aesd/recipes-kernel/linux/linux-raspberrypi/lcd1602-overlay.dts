@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2711";
+
+    fragment@0 {
+        target = <&i2c1>;
+        __overlay__ {
+            status = "okay";
+            lcd1602: lcd1602@27 {
+                compatible = "hitachi,hd44780";
+                reg = <0x27>;
+            };
+            aht21: aht21@38 {
+                compatible = "sensaht21,aht21";
+                reg = <0x38>;
+            };
+        };
+    };
+};

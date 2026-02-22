@@ -4,9 +4,18 @@ on:
         branches:
             - 'develop'
             - 'main'
-    # pull_request:
-    #     branches:
-    #         - 'develop'
+        paths-ignore:
+            - 'docs/**'
+            - 'README.md'
+            - 'LICENSE'
+    pull_request:
+        branches:
+            - 'develop'
+            - 'main'
+        paths-ignore:
+            - 'docs/**'
+            - 'README.md'
+            - 'LICENSE'
             
 jobs:
       build:

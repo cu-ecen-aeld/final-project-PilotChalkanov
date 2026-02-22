@@ -1,0 +1,11 @@
+[Unit]
+Description=AHT21 to LCD1602 Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/start_app.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -3,7 +3,7 @@ set -e
 
 MACHINE="${MACHINE:-${1:-raspberrypi4-64}}"
 SD_DEVICE="${SD_DEVICE:-/dev/sdb}"
-IMAGE_PATH="${PWD}/${MACHINE}/tmp/deploy/images/${MACHINE}/core-image-full-cmdline-${MACHINE}.wic.bz2"
+IMAGE_PATH="${PWD}/${MACHINE}/tmp/deploy/images/${MACHINE}/core-image-aesd-${MACHINE}.wic.bz2"
 
 echo "Flashing image for MACHINE: $MACHINE to device: $SD_DEVICE"
 
@@ -19,3 +19,6 @@ fi
 
 bzcat "$IMAGE_PATH" | sudo dd of="$SD_DEVICE" bs=4M conv=fsync status=progress
 echo "Flashing completed successfully."
+
+eject "$SD_DEVICE" || true
+echo "SD card ejected. You can now remove it safely."
