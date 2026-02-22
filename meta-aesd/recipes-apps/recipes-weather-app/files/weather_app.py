@@ -15,8 +15,8 @@ logging.basicConfig(
 def fetch_and_write():
     while True:
         try:
-            with open(AHT21_DEV, "r") as sensor:
-                data = sensor.read(8).strip()
+            with open(AHT21_DEV, "rb") as sensor:
+                data = sensor.read(8)
                 temp, humidity = struct.unpack("ii", data)
             with open(LCD1602_DEV, "w") as lcd:
                 lcd.write(f"Temp: {temp}C Hum: {humidity}%")
