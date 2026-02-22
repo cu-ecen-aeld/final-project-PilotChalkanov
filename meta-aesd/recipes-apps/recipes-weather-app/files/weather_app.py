@@ -16,9 +16,11 @@ def fetch_and_write():
     while True:
         try:
             with open(AHT21_DEV, "rb") as sensor:
-                data = sensor.read(8)
+                logging.info(f"Reading from {AHT21_DEV}")
+                data = sensor.read()
                 temp, humidity = struct.unpack("ii", data)
             with open(LCD1602_DEV, "w") as lcd:
+                logging.info(f"Writing to {LCD1602_DEV}")
                 lcd.write(f"Temp: {temp}C Hum: {humidity}%")
             logging.info(f"Read from {AHT21_DEV}: {data} | Written to {LCD1602_DEV}")
         except Exception as e:
