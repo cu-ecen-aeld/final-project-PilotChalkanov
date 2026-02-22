@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/start_app.sh
+ExecStart=/usr/bin/python3 -m aesd_weather_app.main
 Restart=always
 
 [Install]
