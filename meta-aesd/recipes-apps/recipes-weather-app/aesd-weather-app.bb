@@ -1,7 +1,7 @@
 DESCRIPTION = "AHT21 to LCD1602 daemon Python app"
 SECTION = "apps"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=cc9981b19e77ae42edce223b8f78bb81"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=bf72105a69d303b78352c6a39239bc69"
 
 SRC_URI = "file://weather_app.py file://start_app.sh file://weather_app.service file://LICENSE"
 
