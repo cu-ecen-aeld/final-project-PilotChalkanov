@@ -24,4 +24,4 @@ do_install:append() {
     install -m 0755 ${WORKDIR}/weather_app_start_stop.sh ${D}${sysconfdir}/init.d/weather_app_start_stop
 }
 
-RDEPENDS:${PN} = "python3-core python3-requests"
+RDEPENDS:${PN} = "python3-core python3-requests python3-certifi ca-certificates"
