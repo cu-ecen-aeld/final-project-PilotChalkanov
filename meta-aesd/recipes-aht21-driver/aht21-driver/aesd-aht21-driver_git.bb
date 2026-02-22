@@ -19,7 +19,7 @@ SRC_URI = "git://git@github.com/PilotChalkanov/i2c-aht21-driver.git;protocol=ssh
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "e0e088d2da9ace726c5c297c69d6f932012a4a5f"
+SRCREV = "d8946d894abbabde9077d05302ca1bc7fb51e029"
 
 S = "${WORKDIR}/git"
 
