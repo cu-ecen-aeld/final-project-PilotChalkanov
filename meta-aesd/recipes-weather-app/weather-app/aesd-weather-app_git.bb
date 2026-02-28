@@ -3,10 +3,10 @@ SECTION = "apps"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb90819ede98782f3960734292a6249c"
 
-SRC_URI = "git://github.com/PilotChalkanov/aesd-weather-app.git;branch=feature/add-yocto-python-compatibility;protocol=https \
+SRC_URI = "git://github.com/PilotChalkanov/aesd-weather-app.git;branch=main;protocol=https \
            file://weather_app_start_stop.sh"
 
-SRCREV = "d31b627421fcf36406ac4531c846584bc39046bc"
+SRCREV = "4d47f32509c737e0481092dd721e6baac0f237e9"
 PV = "0.1+git${SRCPV}"
 
 S = "${WORKDIR}/git"
