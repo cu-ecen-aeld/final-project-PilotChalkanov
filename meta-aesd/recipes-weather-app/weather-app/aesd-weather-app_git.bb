@@ -3,10 +3,10 @@ SECTION = "apps"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=fb90819ede98782f3960734292a6249c"
 
-SRC_URI = "git://github.com/PilotChalkanov/aesd-weather-app.git;branch=main;protocol=https \
+SRC_URI = "git://github.com/PilotChalkanov/aesd-weather-app.git;branch=fix/disable-wind-outside-temp-sensors;protocol=https \
            file://weather_app_start_stop.sh"
 
-SRCREV = "4d47f32509c737e0481092dd721e6baac0f237e9"
+SRCREV = "9c3472a9b1bd0a01087ff74d134ba0ffe057fb89"
 PV = "0.1+git${SRCPV}"
 
 S = "${WORKDIR}/git"
