@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=fb90819ede98782f3960734292a6249c"
 SRC_URI = "git://github.com/PilotChalkanov/aesd-weather-app.git;branch=main;protocol=https \
            file://weather_app_start_stop.sh"
 
-SRCREV = "fa4b9d9c4bdb51ead41643b380cfae1f6f164b8e"
+SRCREV = "ed7ffa14c5e6e98a50c3a9e20e442990a6c9d665"
 PV = "0.1+git${SRCPV}"
 
 S = "${WORKDIR}/git"
